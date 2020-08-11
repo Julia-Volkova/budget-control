@@ -1,0 +1,8 @@
+.idea
+node_modules
+
+# nuxt.js build output
+.nuxt
+
+# Nuxt generate
+dist
