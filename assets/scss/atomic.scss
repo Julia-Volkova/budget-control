@@ -1,0 +1,187 @@
+.hidden {
+	display: none;
+}
+.no-wrap{
+	white-space: nowrap;
+}
+
+.inline-block{
+	display: inline-block;
+	vertical-align: middle;
+}
+.line-justify{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.flexCenterBox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding-bottom: 30px;
+}
+.flexCenter{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.flexCenter-h {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.flexBaseline{
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+.no-flex-wrap {
+	flex-wrap: nowrap;
+}
+.float-right {
+	float: right;
+}
+.float-left {
+	float: left;
+}
+
+.v-top{
+	vertical-align: top;
+}
+.v-middle{
+	vertical-align: middle;
+}
+.v-bottom{
+	vertical-align: bottom;
+}
+.v-baseline{
+	vertical-align: baseline;
+}
+.block{
+	display: block;
+}
+.inline{
+	display: inline;
+}
+.block-center {
+	margin: 0 auto;
+}
+.wrap-text {
+	white-space: normal;
+}
+.text-center{
+	text-align: center;
+}
+.text-left{
+	text-align: left;
+}
+.text-right{
+	text-align: right;
+}
+
+@each $key, $val in $breakpoints-map {
+	@include media($key) {
+		.text-right-#{$key} {
+			text-align: right;
+		}
+		.text-center-#{$key}{
+			text-align: center;
+		}
+		.text-left-#{$key}{
+			text-align: left;
+		}
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0 50%
+	}
+}
+.text-loader {
+	background-image: linear-gradient(-45deg, $color-text 45%, $color-gray-light 55%, $color-text 65%);
+	background-size: 500%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: Gradient 4s ease infinite;
+	animation-direction: normal;
+}
+.text-loader-white {
+	background-image: linear-gradient(-45deg, #fff 45%, rgba(#fff, .3) 55%, #fff 65%);
+	background-size: 500%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: Gradient 4s ease infinite;
+	animation-direction: normal;
+}
+.text-default {
+	color: $color-text;
+	svg {
+		fill: $color-text;
+	}
+}
+svg.text-default {
+	fill: $color-text;
+}
+.text-white {
+	color: #fff;
+	svg {
+		fill: #fff;
+	}
+}
+svg.text-white {
+	fill: #fff;
+}
+.text-minor{
+	color: $color-gray;
+	svg {
+		fill: $color-gray;
+	}
+}
+svg.text-minor {
+	fill: #9e9e9e;
+}
+
+.text-brand {
+	color: $color-brand;
+	svg {
+		fill: $color-brand;
+	}
+}
+.text-success {
+	color: $color-success;
+	svg {
+		fill: $color-success;
+	}
+}
+
+.text-danger {
+	color: $color-danger;
+	svg {
+		fill: $color-danger;
+	}
+}
+.text-accent {
+	color: $color-accent;
+	svg {
+		fill: $color-accent;
+	}
+}
+
+.text-upper {
+	text-transform: uppercase;
+}
+
+.text-capitalize {
+	text-transform: capitalize;
+}
+
+.pointer{
+	cursor: pointer;
+}

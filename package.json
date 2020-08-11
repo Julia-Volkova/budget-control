@@ -1,0 +1,46 @@
+{
+  "name": "budget_control",
+  "version": "",
+  "description": "bc",
+  "author": "JuliaKolb",
+  "private": true,
+  "scripts": {
+    "dev": "env-cmd local nodemon server/index.js --watch server",
+    "build": "env-cmd build nuxt build",
+    "build-analyze": "env-cmd build nuxt build --analyze",
+    "build:patch": "npm version patch && env-cmd build nuxt build",
+    "build:minor": "npm version minor && env-cmd build nuxt build",
+    "build:major": "npm version major && env-cmd build nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "pm2-server": "pm2 start ecosystem.config.js --only GLED_CHAIN_NUXT",
+    "start:local": "env-cmd local npm run pm2-server",
+    "start:test": "env-cmd test npm run pm2-server",
+    "start:dtk": "env-cmd dtk npm run pm2-server",
+    "start:prod": "env-cmd production npm run pm2-server",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.4.1",
+    "@nuxtjs/pwa": "^2.6.0",
+    "cross-env": "^5.2.0",
+    "env-cmd": "^8.0.2",
+    "express": "^4.16.4",
+    "glob-all": "^3.1.0",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.6.1",
+    "vue-modal-dialogs": "^3.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/svg-sprite": "^0.2.0",
+    "import-glob-loader": "^1.1.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "purgecss-webpack-plugin": "^1.4.0",
+    "sass-loader": "^7.1.0"
+  },
+  "browserslist": [
+    "> 2%",
+    "last 2 versions",
+    "IE > 10"
+  ]
+}

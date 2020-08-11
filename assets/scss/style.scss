@@ -1,0 +1,15 @@
+@import '~normalize.css';
+@import './service/*.scss';
+@import './helpers/*.scss';
+@import './layout/*.scss';
+@import './base/*.scss';
+//@import './plugin/*.scss';
+@import './block/*.scss';
+@import './atomic.scss';
+@import "./generic-class";
+
+.test {
+	background-image: url('~assets/sprite/svg/Vue.svg');
+	width: 500px;
+	height: 500px;
+}

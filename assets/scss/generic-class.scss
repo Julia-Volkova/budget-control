@@ -1,0 +1,148 @@
+$prefixList: (
+	'': null,
+	t: '-top',
+	r: '-right',
+	b: '-bottom',
+	l: '-left',
+);
+
+$prefixListTransform: (
+	t: 'translateY',
+	l: 'translateX',
+);
+// generate transform
+@each $prefixKey, $prefixValue in $prefixListTransform {
+	@for $index from -10 through 10 {
+		$value: $index;
+		.t#{$prefixKey}-#{$value} {
+			transform: #{$prefixValue+'('+$value+px+')'};
+		}
+	}
+}
+
+// generate margin
+// from 0px to 9px
+@each $prefixKey, $prefixValue in $prefixList {
+	@for $index from 0 through 9 {
+		$value: $index;
+		.m#{$prefixKey}-#{$value} {
+			margin#{$prefixValue}: $value+px;
+		}
+	}
+}
+
+// from -0px to -10 px
+@each $prefixKey, $prefixValue in $prefixList {
+	@for $index from 0 through 10 {
+		$value: $index;
+		.m#{$prefixKey}--#{$value} {
+			margin#{$prefixValue}: -$value+px;
+		}
+	}
+}
+
+// from 10px to 30px
+@each $prefixKey, $prefixValue in $prefixList {
+	@for $index from 2 through 6 {
+		$value: $index * 5;
+		.m#{$prefixKey}-#{$value} {
+			margin#{$prefixValue}: $value+px;
+		}
+	}
+}
+
+// generate padding
+//  from 0px  to 10px
+@each $prefixKey, $prefixValue in $prefixList {
+	@for $index from 0 through 9 {
+		$value: $index;
+		.p#{$prefixKey}-#{$value} {
+			padding#{$prefixValue}: $value+px;
+		}
+	}
+}
+
+// from 10px to 30px
+@each $prefixKey, $prefixValue in $prefixList {
+	@for $index from 2 through 6 {
+		$value: $index * 5;
+		.p#{$prefixKey}-#{$value} {
+			padding#{$prefixValue}: $value+px;
+		}
+	}
+}
+
+// generate font-size
+
+@for $index from 5 through 30 {
+	.fz-#{$index} {
+		font-size: ($index)+px;
+	}
+}
+
+@include media(s) {
+	.fz-22 {
+		font-size: 18px;
+	}
+	.fz-20 {
+		font-size: 18px;
+	}
+	.fz-18 {
+		font-size: 16px;
+	}
+}
+
+@for $index from 2 through 7 {
+	.fw-#{$index}00 {
+		font-weight: $index*100;
+	}
+}
+
+// generate line-height
+@for $index from 0 to 10 {
+	$value: .1 * $index;
+	$selector: '1' + if($index == 0, '', ('-' + $index));
+	.lh-#{$selector} {
+		line-height: 1 + $value !important;
+	}
+}
+
+.lh-2 {
+	line-height: 2 !important;
+}
+
+.w-auto {
+	width: auto;
+}
+// _TimePicker timePicker--range
+.w-180 {
+	width: 180px;
+}
+// generate 'width'
+// from 0px to 100px
+@for $index from 0 through 10 {
+	$value: 10 * $index;
+	.w-#{$value} {
+		width: $value + px;
+	}
+}
+
+// from 100px to 500px
+@for $index from 1 through 10 {
+	$value: 50 * $index + 100;
+	.w-#{$value} {
+		width: $value + px;
+	}
+	.max-w-#{$value} {
+		max-width: $value + px;
+	}
+}
+
+// from 0% to 100%
+@for $index from 0 through 10 {
+	$value: 10 * $index;
+	.w-#{$value}p {
+		width: $value * 1%;
+	}
+}
+

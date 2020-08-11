@@ -1,0 +1,38 @@
+.box {
+	margin-bottom: 50px;
+}
+
+.box--stick {
+	margin-bottom: 0;
+}
+
+.box__header {
+	margin-bottom: 35px;
+}
+
+.box__title {
+	@include title;
+	margin: 0;
+}
+
+.box__subTitle {
+	@include title-s;
+	margin: 10px 0 0;
+}
+
+.box__content {
+}
+
+.box__content + .box__content {
+	margin-top: 40px;
+}
+
+
+.box__footer {
+	margin-top: 46px;
+}
+
+.box__footer--center {
+	text-align: center;
+}
+

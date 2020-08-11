@@ -1,0 +1,185 @@
+.layout {
+	width: 100%;
+	min-width: 320px;
+	max-width: 1200px;
+	padding: 0 15px;
+	margin: 0 auto;
+	@include media(from, s) {
+		padding: 0 30px;
+	}
+	@include media(from, xl) {
+		padding: 0 60px;
+	}
+}
+.layout--large {
+	max-width: 1200px;
+	padding: 0;
+}
+.layout--full {
+	max-width: 100%;
+}
+
+.layout--thin {
+	max-width: 1000px;
+}
+
+.layout--overflow {
+	overflow: hidden;
+}
+.layout--relative {
+	position: relative;
+}
+
+@include media(from, l) {
+	.globalShiftLeft {
+		padding-left: 55px;
+	}
+}
+.cells,
+.cells.cell,
+.cell--parent {
+	font-size: 0 !important;
+	display: block;
+}
+
+.cells--indent {
+	margin: 0 -15px -30px -15px;
+	& > [class^="cell_"], .cell {
+		padding: 0 15px 30px 15px;
+	}
+}
+
+.cells--indent-10 {
+	margin: 0 -5px -10px -5px;
+	& > [class^="cell_"] {
+		padding: 0 5px 10px 5px;
+	}
+}
+
+.cells--indent-20 {
+	margin: 0 -10px -20px -10px;
+	& > [class^="cell_"] {
+		padding: 0 10px 20px 10px;
+	}
+}
+
+.cells--indent-60 {
+	margin: 0 -30px -60px -30px;
+	& > [class^="cell_"] {
+		padding: 0 30px 60px 30px;
+	}
+}
+.cells--panel {
+	margin: 0 -10px -45px -10px;
+	& > [class^="cell_"] {
+		padding: 0 10px 45px 10px;
+	}
+}
+
+.cells--line {
+	margin-bottom: 0;
+	margin-top: 0;
+	& > [class ^="cell_"] {
+		padding-bottom: 0;
+		padding-top: 0;
+	}
+}
+
+.cells--flex {
+	display: flex;
+	align-items: stretch;
+	flex-wrap: wrap;
+	& > [class ^="cell_"] {
+		flex-shrink: 0;
+		flex-grow: 0;
+	}
+}
+
+.cell__inner {
+	height: 100%;
+}
+
+[class^="cell_"] {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	font-size: $font-size;
+}
+
+.cell__0 {
+	width: 1px;
+	margin-left: -1px;
+}
+
+.celSeparator {
+	width: 100%;
+}
+
+@include media(s) {
+	.cells--indent-60 {
+		margin: 0 -15px -35px -15px;
+		& > [class^="cell_"] {
+			padding: 0 15px 35px 15px;
+		}
+	}
+	.cells--panel {
+		margin: 0 -10px -25px -10px;
+		& > [class^="cell_"] {
+			padding: 0 10px 25px 10px;
+		}
+	}
+}
+
+@for $i from 0 through $columns {
+	.cell__#{$i} {
+		width: 100%/$columns * $i;
+	}
+}
+
+@each $key, $val in $breakpoints-map {
+	@include media($key) {
+		@for $i from 0 through $columns {
+			.cell__#{$key}-#{$i} {
+				width: 100%/$columns * $i;
+			}
+
+		}
+	}
+}
+
+// Order Classes
+@each $key, $val in $breakpoints-map {
+	@include media($key) {
+		@for $i from 0 through 10 {
+			.order-to-#{$key}-#{$i} {
+				order: $i;
+			}
+		}
+	}
+	@include media(from, $key) {
+		@for $i from 0 through 10 {
+			.order-from-#{$key}-#{$i} {
+				order: $i;
+			}
+		}
+	}
+}
+
+// Hidden Classes
+
+@each $key, $val in $breakpoints-map {
+	@include media($key) {
+		.hidden-to-#{$key} {
+			display: none !important;
+		}
+	}
+}
+
+@each $key, $val in $breakpoints-map {
+	@include media(from, $key) {
+		.hidden-from-#{$key} {
+			display: none !important;
+		}
+	}
+}
+

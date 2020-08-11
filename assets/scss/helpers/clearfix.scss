@@ -1,0 +1,19 @@
+@mixin clearfix {
+	&:after {
+		content: ' ';
+		display: block;
+		clear: both;
+		overflow: hidden;
+	}
+	&:before {
+		content: ' ';
+		display: block;
+		clear: both;
+		overflow: hidden;
+	}
+
+}
+
+.clearfix {
+	@include clearfix;
+}
