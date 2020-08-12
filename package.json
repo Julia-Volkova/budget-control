@@ -15,7 +15,6 @@
     "pm2-server": "pm2 start ecosystem.config.js --only GLED_CHAIN_NUXT",
     "start:local": "env-cmd local npm run pm2-server",
     "start:test": "env-cmd test npm run pm2-server",
-    "start:dtk": "env-cmd dtk npm run pm2-server",
     "start:prod": "env-cmd production npm run pm2-server",
     "generate": "nuxt generate"
   },

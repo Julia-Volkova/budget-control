@@ -1,1 +1,27 @@
-.page {}
+.page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.page__aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  flex-shrink: 0;
+  width: 200px;
+  border-right: 1px solid grey;
+  background-color: #ffffff;
+}
+
+.page__main {
+  flex-grow: 1;
+  padding-left: 200px;
+  background-color: #ffffff;
+}
+
+.page__aside,
+.page__main {
+  min-height: 100vh;
+  overflow-y: auto;
+}

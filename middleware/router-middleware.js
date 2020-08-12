@@ -1,5 +1,4 @@
 let redirectMap = {
-	"/": "/route-name/children",
 	"/subjects": "/",
 };
 
