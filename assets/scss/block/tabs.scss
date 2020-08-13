@@ -1,0 +1,23 @@
+.tabs {
+
+}
+
+.tabs__item {
+  position: relative;
+}
+
+.tabs__item--active {
+  background-color: #8BC34A;
+}
+
+.active.tabs__item {
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+    background-color: #8BC34A;
+  }
+}

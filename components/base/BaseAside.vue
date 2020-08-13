@@ -1,9 +1,15 @@
 <template>
   <aside class="_BaseAside aside">
     <div class="tabs">
-      <div class="tabs__item">
-
-      </div>
+      <nuxt-link :to="`/account/1`" class="tabs__item block">
+        Кошелек 1
+      </nuxt-link>
+      <nuxt-link :to="`/account/2`" class="tabs__item block">
+        Кошелек 2
+      </nuxt-link>
+      <nuxt-link :to="`/account/3`" class="tabs__item block">
+        Кошелек 3
+      </nuxt-link>
     </div>
   </aside>
 </template>
@@ -15,10 +21,23 @@
     props: {},
     components: {},
     data() {
-      return {};
+      return {
+        state: {
+          account1: true,
+          account2: false,
+          account3: false,
+        },
+      };
     },
     computed: {},
-    methods: {},
+    methods: {
+      setState(state) {
+        Object.keys(this.state).map((key) => {
+          this.state[ key ] = false;
+        });
+        this.state[ state ] = true;
+      },
+    },
     directives: {},
     filters: {},
     watch: {},
