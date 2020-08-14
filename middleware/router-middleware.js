@@ -1,5 +1,6 @@
 let redirectMap = {
-	"/subjects": "/",
+	'/subjects': '/',
+	'/': '/account/1?operations=income',
 };
 
 export default function ({ route, redirect }) {

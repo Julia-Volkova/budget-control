@@ -1,13 +1,13 @@
 <template>
   <aside class="_BaseAside aside">
     <div class="tabs">
-      <nuxt-link :to="`/account/1`" class="tabs__item block">
+      <nuxt-link :to="`/account/1?operations=income`" class="tabs__item block">
         Кошелек 1
       </nuxt-link>
-      <nuxt-link :to="`/account/2`" class="tabs__item block">
+      <nuxt-link :to="`/account/2?operations=income`" class="tabs__item block">
         Кошелек 2
       </nuxt-link>
-      <nuxt-link :to="`/account/3`" class="tabs__item block">
+      <nuxt-link :to="`/account/3?operations=income`" class="tabs__item block">
         Кошелек 3
       </nuxt-link>
     </div>
